@@ -1,7 +1,206 @@
+@font-face {
+  font-family: 'Outfit';
+  src: url('../assets/fonts/outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'YoungSerif';
+  src: url('../assets/fonts/young-serif/YoungSerif-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+}
+
+:root {
+  /* Primary Colors */
+  --color-primary: hsl(332, 51%, 32%);
+  --color-primary-light: hsl(330, 100%, 98%);
+  --color-secondary: hsl(14, 45%, 36%);
+  /* Neutral Colors */
+  --color-light: hsl(0, 0%, 100%);
+  --color-dark: hsl(24, 5%, 18%);
+  --color-light-brown: hsl(30, 54%, 90%);
+  --color-brown: hsl(30, 10%, 34%);
+  --color-border: hsl(30, 18%, 87%);
+
+  --spacing: 1rem;
+  --font-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-light-brown);
+  color: var(--color-brown);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-block-start: calc(3 * var(--spacing));
+}
+
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.wrapper {
+  padding: calc(2 * var(--spacing));
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--color-border);
+}
+
+span {
+  font-weight: var(--font-bold);
+}
+
+article {
+  background-color: var(--color-light);
+  border-radius: 1.5rem;
+  margin-inline: auto;
+  max-width: 46rem;
+}
+
+section {
+  padding-block: calc(2 * var(--spacing));
+}
+
+h2,
+h3 {
+  color: var(--color-secondary);
+  font-family: 'YoungSerif', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+h2 {
+  color: var(--color-dark);
+  font-size: clamp(2rem, 1.615rem + 1.923vi, 2.5rem);
+  line-height: 1;
+  margin-block-end: calc(1.5 * var(--spacing));
+}
+
+h3 {
+  margin-block-end: calc(1.5 * var(--spacing));
+}
+
+.preparation h3 {
+  color: var(--color-primary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: var(--font-bold);
+  margin-block-end: var(--spacing);
+}
+
+p.recipe__description {
+  color: var(--color-dark);
+  padding-block-end: calc(2 * var(--spacing));
+}
+
+ul,
+ol {
+  padding-inline-start: calc(1.25 * var(--spacing));
+}
+
+li {
+  padding-left: var(--spacing);
+}
+
+li:not(:last-child) {
+  margin-block-end: calc(0.5 * var(--spacing));
+}
+
+li::marker {
+  color: var(--color-secondary);
+  font-weight: var(--font-bold);
+}
+
+/******** Preparation Styles ********/
+.preparation {
+  background-color: var(--color-primary-light);
+  border-radius: 0.75rem;
+  padding: calc(1.5 * var(--spacing));
+}
+
+.nutrition {
+  padding-block-end: calc(0 * var(--spacing));
+}
+
+.nutrition__description {
+  margin-block-end: calc(1.5 * var(--spacing));
+}
+
+/******** Table Styles ********/
+table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+tr:not(:last-child) {
+  border-bottom: 1px solid var(--color-border);
+}
+
+th,
+td {
+  padding: 0.5rem 1rem;
+  padding: calc(0.5 * var(--spacing)) var(--spacing);
+  width: 50%;
+}
+
+th {
+  font-weight: 400;
+  padding-inline-start: calc(2 * var(--spacing));
+}
+
+td {
+  color: var(--color-secondary);
+  font-weight: var(--font-bold);
+}
+
+/******** Attribution Styles ********/
 .attribution {
-  font-size: 11px;
+  font-size: 0.75rem;
+  padding-block: calc(2 * var(--spacing));
   text-align: center;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--color-primary);
+}
+
+@media (min-width: 46em) {
+  body {
+    margin-block-start: calc(7.5 * var(--spacing));
+  }
+  .wrapper {
+    padding: calc(2.5 * var(--spacing));
+  }
+  .recipe__image {
+    border-radius: 0.75rem;
+    padding-inline: calc(2.5 * var(--spacing));
+    padding-block-start: calc(2.5 * var(--spacing));
+  }
+
+  .recipe__image img {
+    border-radius: 0.75rem;
+  }
+
+  .preparation {
+    padding: calc(1.75 * var(--spacing));
+  }
 }
